@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Driving risk emerges from the required two-dimensional joint evasive acceleration</title>
+  <meta name="description" content="Project page for the EA paradigm: a two-dimensional, physically interpretable risk quantification method for autonomous driving safety." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient-bg" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">EA Paradigm</div>
+    <nav class="nav">
+      <a href="#overview">Overview</a>
+      <a href="#cases">Case Videos</a>
+      <a href="#figures">Figures</a>
+      <a href="#methods">Methods</a>
+      <a href="#citation">Citation</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero reveal">
+      <p class="eyebrow">Project Page</p>
+      <h1>Driving risk emerges from the required two-dimensional joint evasive acceleration</h1>
+      <div class="author-block" aria-label="Authors and affiliations">
+        <p class="author-line">
+          Hao Cheng<sup>1</sup>, Yanbo Jiang<sup>1</sup>, Wenhao Yu<sup>2</sup>, Rui Zhou<sup>3</sup>, Jiang Bian<sup>3</sup>,
+          Keyu Chen<sup>1</sup>, Zhiyuan Liu<sup>1</sup>, Heye Huang<sup>4</sup>, Hailun Zhang<sup>5</sup>, Fang Zhang<sup>2</sup>,
+          Jianqiang Wang<sup>1</sup>, and Sifa Zheng<sup>1,*</sup>
+        </p>
+        <div class="affiliation-list">
+          <p><sup>1</sup>School of Vehicle and Mobility, Tsinghua University, Beijing 100084, China</p>
+          <p><sup>2</sup>State Key Laboratory of Intelligent Green Vehicle and Mobility, Beijing 100084, China</p>
+          <p><sup>3</sup>School of Traffic and Transportation Engineering, Central South University, Changsha 410000, China</p>
+          <p><sup>4</sup>Singapore-MIT Alliance for Research and Technology (SMART), Massachusetts Institute of Technology, Singapore 138602, Singapore</p>
+          <p><sup>5</sup>School of Automotive Engineering, Chang'an University, Xi'an 710064, China</p>
+        </div>
+        <p class="author-note"><strong>First author:</strong> Hao Cheng. <strong>Corresponding author:</strong> Sifa Zheng.</p>
+      </div>
+      <p class="hero-text">
+        We present evasive acceleration (EA), a hyperparameter-free and physically intuitive two-dimensional risk paradigm.
+        EA quantifies the minimum constant relative acceleration needed to make an interaction collision-free.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://github.com/AutoChengh/evasive-acceleration" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn btn-disabled" href="javascript:void(0)" aria-disabled="true">arXiv (coming soon)</a>
+      </div>
+      <div class="impact-grid">
+        <article class="impact-card">
+          <h3>Earlier Warning</h3>
+          <p>120-267% longer warning lead times than TTC-based methods under strict thresholds.</p>
+        </article>
+        <article class="impact-card">
+          <h3>More Information</h3>
+          <p>75.1-241.4% higher crash-outcome information retention than TTC-based baselines.</p>
+        </article>
+        <article class="impact-card">
+          <h3>Strong Nonredundancy</h3>
+          <p>Adding EA reduces entropy by 23.7-38.4%, while adding others to EA brings near-zero gain.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="overview" class="section reveal">
+      <div class="section-head">
+        <h2>Abstract</h2>
+      </div>
+      <p>
+        Most existing testing platforms and benchmarks rely on time-to-collision (TTC) to evaluate safety and guide autonomous driving systems. However, TTC-based methods use a one-dimensional paradigm to quantify motion risk that is inherently two-dimensional and therefore fail to adequately capture either the risk itself or how it evolves over time. We report evasive acceleration (EA), a hyperparameter-free and physically intuitive two-dimensional paradigm that directly measures the instantaneous cost of collision avoidance.
+      </p>
+      <p>
+        Using large-scale interaction data from five open datasets and more than 600 real crashes, EA provides the earliest statistically significant warning across all tested thresholds, consistently improves crash discrimination, and retains substantially more outcome-relevant information than existing methods.
+      </p>
+    </section>
+
+    <section id="cases" class="section reveal">
+      <div class="section-head">
+        <h2>High-Risk Interaction Cases (GIF)</h2>
+      </div>
+      <div class="media-grid">
+        <article class="media-card">
+          <img src="./%E5%8F%AF%E4%BB%A5%E6%94%BE%E7%BD%91%E9%A1%B5%E7%9A%84gif/InD_05_tracks_266_267.gif" alt="High-risk interaction case InD 05 tracks 266 267" loading="lazy" />
+          <div class="media-meta">
+            <h3>InD Case A</h3>
+            <p>Merging conflict with successful resolution after timely evasive maneuver.</p>
+          </div>
+        </article>
+        <article class="media-card">
+          <img src="./%E5%8F%AF%E4%BB%A5%E6%94%BE%E7%BD%91%E9%A1%B5%E7%9A%84gif/InD_16_tracks_35_37.gif" alt="High-risk interaction case InD 16 tracks 35 37" loading="lazy" />
+          <div class="media-meta">
+            <h3>InD Case B</h3>
+            <p>Two-road-user interaction showing dynamic risk build-up and release.</p>
+          </div>
+        </article>
+        <article class="media-card">
+          <img src="./%E5%8F%AF%E4%BB%A5%E6%94%BE%E7%BD%91%E9%A1%B5%E7%9A%84gif/SIND_Tianjin_8_9_1_486_496.gif" alt="High-risk interaction case SIND Tianjin" loading="lazy" />
+          <div class="media-meta">
+            <h3>SIND Tianjin Case</h3>
+            <p>Complex urban interaction highlighting two-dimensional conflict structure.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-head">
+        <h2>Real Crash Data Cases (GIF)</h2>
+      </div>
+      <div class="media-grid">
+        <article class="media-card">
+          <img src="./%E5%8F%AF%E4%BB%A5%E6%94%BE%E7%BD%91%E9%A1%B5%E7%9A%84gif/crash_684_T-bone.gif" alt="Crash case T-bone" loading="lazy" />
+          <div class="media-meta">
+            <h3>Crash Case 684</h3>
+            <p>T-bone crash where EA keeps rising until impact, indicating increasing irrecoverability.</p>
+          </div>
+        </article>
+        <article class="media-card">
+          <img src="./%E5%8F%AF%E4%BB%A5%E6%94%BE%E7%BD%91%E9%A1%B5%E7%9A%84gif/crash614_sideswipe.gif" alt="Crash case sideswipe" loading="lazy" />
+          <div class="media-meta">
+            <h3>Crash Case 614</h3>
+            <p>Sideswipe crash trajectory illustrating sustained high evasive demand.</p>
+          </div>
+        </article>
+        <article class="media-card">
+          <img src="./%E5%8F%AF%E4%BB%A5%E6%94%BE%E7%BD%91%E9%A1%B5%E7%9A%84gif/crash_647_rear-end.gif" alt="Crash case rear-end" loading="lazy" />
+          <div class="media-meta">
+            <h3>Crash Case 647</h3>
+            <p>Rear-end crash sequence with continuous risk escalation before collision.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="figures" class="section reveal">
+      <div class="section-head">
+        <h2>Figures from the Paper</h2>
+      </div>
+      <div class="figure-grid">
+        <article class="figure-card">
+          <h3>Figure: Introduction Framework (PDF)</h3>
+          <object data="./%E5%8F%AF%E4%BB%A5%E6%94%BE%E7%BD%91%E9%A1%B5%E7%9A%84%E5%9B%BE/Intro.pdf" type="application/pdf" class="pdf-viewer">
+            <p>
+              PDF preview is not available in this browser.
+              <a href="./%E5%8F%AF%E4%BB%A5%E6%94%BE%E7%BD%91%E9%A1%B5%E7%9A%84%E5%9B%BE/Intro.pdf" target="_blank" rel="noopener noreferrer">Open Intro.pdf</a>
+            </p>
+          </object>
+        </article>
+        <article class="figure-card">
+          <h3>Early Warning Performance</h3>
+          <img src="./%E5%8F%AF%E4%BB%A5%E6%94%BE%E7%BD%91%E9%A1%B5%E7%9A%84%E5%9B%BE/Results_2_2.png" alt="Early warning performance under percentile aligned thresholds" loading="lazy" />
+        </article>
+        <article class="figure-card">
+          <h3>Information Retention Analysis</h3>
+          <img src="./%E5%8F%AF%E4%BB%A5%E6%94%BE%E7%BD%91%E9%A1%B5%E7%9A%84%E5%9B%BE/Results_information.png" alt="Crash outcome information retention comparison" loading="lazy" />
+        </article>
+      </div>
+    </section>
+
+    <section id="methods" class="section reveal">
+      <div class="section-head">
+        <h2>Method Highlights</h2>
+      </div>
+      <div class="method-grid">
+        <article>
+          <h3>Core Definition</h3>
+          <p>
+            EA is the minimum norm of a constant two-dimensional relative acceleration vector that keeps the future relative trajectory outside the collision set.
+          </p>
+        </article>
+        <article>
+          <h3>Evaluation Scale</h3>
+          <p>
+            Validation uses 44,180 naturalistic potential conflicts and 658 reconstructed real crashes from heterogeneous datasets.
+          </p>
+        </article>
+        <article>
+          <h3>Three Experimental Axes</h3>
+          <p>
+            Statistical separability, warning timeliness under fixed false-alarm budgets, and crash-outcome information retention.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="citation" class="section reveal citation">
+      <div class="section-head">
+        <h2>Citation and Code</h2>
+      </div>
+      <p>
+        Source code:
+        <a href="https://github.com/AutoChengh/evasive-acceleration" target="_blank" rel="noopener noreferrer">github.com/AutoChengh/evasive-acceleration</a>
+      </p>
+      <pre>@article{evasive_acceleration_2026,
+  title={Driving risk emerges from the required two-dimensional joint evasive acceleration},
+  author={Hao Cheng and Yanbo Jiang and Wenhao Yu and Rui Zhou and Jiang Bian and Keyu Chen and Zhiyuan Liu and Heye Huang and Hailun Zhang and Fang Zhang and Jianqiang Wang and Sifa Zheng},
+  journal={Under review},
+  year={2026}
+}</pre>
+      <p class="footnote">Replace the citation block with final author list, venue, and DOI/arXiv ID after submission.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>EA Project Page - Built for academic communication and reproducible safety research.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
