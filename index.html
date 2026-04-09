@@ -20,7 +20,7 @@
       <a href="#cases">Case Videos</a>
       <a href="#figures">Figures</a>
       <a href="#methods">Methods</a>
-      <a href="#citation">Citation</a>
+      <a href="#citation">Code</a>
     </nav>
   </header>
 
@@ -81,18 +81,18 @@
 
     <section id="cases" class="section reveal">
       <div class="section-head">
-        <h2>High-Risk Interaction Cases</h2>
+        <h2>High-Risk Interaction Cases (GIF)</h2>
       </div>
       <div class="media-grid">
         <article class="media-card">
-          <img src="./assets/gifs/InD_05_tracks_266_267.gif" alt="High-risk interaction case InD 05 tracks 266 267" loading="lazy" />
+          <img src="assets/gifs/InD_05_tracks_266_267.gif" alt="High-risk interaction case InD 05 tracks 266 267" loading="lazy" />
           <div class="media-meta">
             <h3>InD Case A</h3>
             <p>Merging conflict with successful resolution after timely evasive maneuver.</p>
           </div>
         </article>
         <article class="media-card">
-          <img src="./assets/gifs/SIND_Tianjin_8_9_1_486_496.gif" alt="High-risk interaction case SIND Tianjin" loading="lazy" />
+          <img src="assets/gifs/SIND_Tianjin_8_9_1_486_496.gif" alt="High-risk interaction case SIND Tianjin" loading="lazy" />
           <div class="media-meta">
             <h3>SIND Tianjin Case</h3>
             <p>Complex urban interaction highlighting two-dimensional conflict structure.</p>
@@ -103,18 +103,18 @@
 
     <section class="section reveal">
       <div class="section-head">
-        <h2>Real Crash Data Cases</h2>
+        <h2>Real Crash Data Cases (GIF)</h2>
       </div>
       <div class="media-grid">
         <article class="media-card">
-          <img src="./assets/gifs/crash_684_T-bone.gif" alt="Crash case T-bone" loading="lazy" />
+          <img src="assets/gifs/crash_684_T-bone.gif" alt="Crash case T-bone" loading="lazy" />
           <div class="media-meta">
             <h3>Crash Case 684</h3>
             <p>T-bone crash where EA keeps rising until impact, indicating increasing irrecoverability.</p>
           </div>
         </article>
         <article class="media-card">
-          <img src="./assets/gifs/crash_647_rear-end.gif" alt="Crash case rear-end" loading="lazy" />
+          <img src="assets/gifs/crash_647_rear-end.gif" alt="Crash case rear-end" loading="lazy" />
           <div class="media-meta">
             <h3>Crash Case 647</h3>
             <p>Rear-end crash sequence with continuous risk escalation before collision.</p>
@@ -127,23 +127,63 @@
       <div class="section-head">
         <h2>Figures from the Paper</h2>
       </div>
-      <div class="figure-grid">
-        <article class="figure-card">
-          <h3>Figure: Introduction Framework (PDF)</h3>
-          <object data="./assets/images/Intro.pdf" type="application/pdf" class="pdf-viewer">
-            <p>
-              PDF preview is not available in this browser.
-              <a href="./assets/images/Intro.pdf" target="_blank" rel="noopener noreferrer">Open Intro.pdf</a>
+
+      <div class="figure-stack">
+        <article class="figure-panel">
+          <h3>Figure 1. Motivation, concept, and validation framework</h3>
+          <div class="figure-link-box">
+            <p class="figure-link-text">
+              This figure is provided as a PDF for full-resolution viewing.
             </p>
-          </object>
+            <a class="btn btn-primary" href="assets/images/Intro.pdf" target="_blank" rel="noopener noreferrer">
+              Open Figure 1 (PDF)
+            </a>
+          </div>
+          <div class="figure-caption">
+            <p>
+              This figure explains why we introduce EA and what problem it solves.
+              It first shows the limitation of TTC-style thinking: traffic risk is fundamentally two-dimensional,
+              but many existing methods still compress it into a one-dimensional quantity.
+            </p>
+            <p>
+              It then illustrates the core idea of EA. Instead of asking only how much time is left,
+              EA asks how much two-dimensional evasive acceleration is required right now to make the future interaction safe.
+              The last part summarizes the validation setting and the three main experiments used in the paper.
+            </p>
+          </div>
         </article>
-        <article class="figure-card">
-          <h3>Early Warning Performance</h3>
-          <img src="./assets/images/Results_2_2.png" alt="Early warning performance under percentile aligned thresholds" loading="lazy" />
+
+        <article class="figure-panel">
+          <h3>Figure 2. Early warning performance</h3>
+          <img src="assets/images/Results_2_2.png" alt="Early warning performance under percentile-aligned thresholds" loading="lazy" class="figure-full-image" />
+          <div class="figure-caption">
+            <p>
+              This figure shows how early different methods can provide a warning before a crash.
+              We use a sustained-warning rule: a warning only counts if it stays active until the last valid pre-crash moment.
+            </p>
+            <p>
+              Across all tested thresholds, EA gives the earliest warning overall.
+              The advantage becomes even clearer when the warning threshold is made stricter,
+              and it is especially strong in vehicle-pedestrian interactions.
+            </p>
+          </div>
         </article>
-        <article class="figure-card">
-          <h3>Information Retention Analysis</h3>
-          <img src="./assets/images/Results_information.png" alt="Crash outcome information retention comparison" loading="lazy" />
+
+        <article class="figure-panel">
+          <h3>Figure 3. Information retention analysis</h3>
+          <img src="assets/images/Results_information.png" alt="Crash outcome information retention comparison" loading="lazy" class="figure-full-image" />
+          <div class="figure-caption">
+            <p>
+              This figure compares how much crash-outcome-relevant information is preserved in the risk values produced by different methods.
+              All methods are evaluated at the same interaction snapshot and the same lead time.
+            </p>
+            <p>
+              EA shows the strongest standalone performance: it separates crash and non-crash cases better,
+              leaves less residual uncertainty, and retains more useful information.
+              The last panels also show that adding EA to existing baselines provides substantial extra information,
+              while adding those baselines on top of EA contributes very little.
+            </p>
+          </div>
         </article>
       </div>
     </section>
@@ -176,19 +216,12 @@
 
     <section id="citation" class="section reveal citation">
       <div class="section-head">
-        <h2>Citation and Code</h2>
+        <h2>Code</h2>
       </div>
       <p>
         Source code:
         <a href="https://github.com/AutoChengh/evasive-acceleration" target="_blank" rel="noopener noreferrer">github.com/AutoChengh/evasive-acceleration</a>
       </p>
-      <pre>@article{evasive_acceleration_2026,
-  title={Driving risk emerges from the required two-dimensional joint evasive acceleration},
-  author={Hao Cheng and Yanbo Jiang and Wenhao Yu and Rui Zhou and Jiang Bian and Keyu Chen and Zhiyuan Liu and Heye Huang and Hailun Zhang and Fang Zhang and Jianqiang Wang and Sifa Zheng},
-  journal={Under review},
-  year={2026}
-}</pre>
-      <p class="footnote">Replace the citation block with final author list, venue, and DOI/arXiv ID after submission.</p>
     </section>
   </main>
 
