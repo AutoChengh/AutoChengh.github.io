@@ -253,7 +253,7 @@ h1 {
 }
 
 .media-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
 }
 
 .media-card {
@@ -266,9 +266,10 @@ h1 {
 
 .media-card img {
   width: 100%;
-  height: 230px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   display: block;
+  background: #f7f7f4;
 }
 
 .media-meta {
@@ -415,7 +416,10 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .media-card img,
+  .media-card img {
+    height: auto;
+  }
+
   .figure-card img,
   .pdf-viewer {
     height: 220px;
