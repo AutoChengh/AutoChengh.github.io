@@ -44,25 +44,25 @@
         <p class="author-note"><strong>First author:</strong> Hao Cheng. <strong>Corresponding author:</strong> Sifa Zheng.</p>
       </div>
       <p class="hero-text">
-        We present evasive acceleration (EA), a hyperparameter-free and physically intuitive two-dimensional risk paradigm.
-        EA quantifies the minimum constant relative acceleration needed to make an interaction collision-free.
+        We present evasive acceleration (EA), a hyperparameter-free and physically interpretable two-dimensional paradigm for risk quantification.
+        EA quantifies the minimum instantaneous evasive cost, defined as the minimum constant relative acceleration magnitude needed to keep the future interaction collision-free.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://github.com/AutoChengh/evasive-acceleration" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a class="btn btn-disabled" href="javascript:void(0)" aria-disabled="true">arXiv (coming soon)</a>
+        <a class="btn btn-secondary" href="https://arxiv.org/abs/2604.17841" target="_blank" rel="noopener noreferrer">arXiv</a>
       </div>
       <div class="impact-grid">
         <article class="impact-card">
           <h3>Earlier Warning</h3>
-          <p>120-267% longer warning lead times than TTC-based methods under strict thresholds.</p>
+          <p>Across all tested thresholds, EA gives the earliest warning; at the 99.5th percentile threshold, warning lead times are 120-267% earlier than TTC-based methods.</p>
         </article>
         <article class="impact-card">
           <h3>More Information</h3>
-          <p>75.1-241.4% higher crash-outcome information retention than TTC-based baselines.</p>
+          <p>EA retains 54.2-241.4% more crash-outcome-relevant information than classical and recent advanced baselines.</p>
         </article>
         <article class="impact-card">
           <h3>Strong Nonredundancy</h3>
-          <p>Adding EA reduces entropy by 23.7-38.4%, while adding others to EA brings near-zero gain.</p>
+          <p>Adding EA to existing methods contributes an additional 12.4-38.4% information ceiling, while adding existing methods to EA yields near-zero gain, with asymmetry ratios up to 95.5x.</p>
         </article>
       </div>
     </section>
@@ -72,11 +72,37 @@
         <h2>Abstract</h2>
       </div>
       <p>
-        Most existing testing platforms and benchmarks rely on time-to-collision (TTC) to evaluate safety and guide autonomous driving systems. However, TTC-based methods use a one-dimensional paradigm to quantify motion risk that is inherently two-dimensional and therefore fail to adequately capture either the risk itself or how it evolves over time. We report evasive acceleration (EA), a hyperparameter-free and physically intuitive two-dimensional paradigm that directly measures the instantaneous cost of collision avoidance.
+        Time-to-collision (TTC) has long shaped safety assessment across training, testing, and regulatory settings. However, TTC evaluates risk urgency through only a single temporal dimension, creating a dimensionality mismatch for inherently multidirectional interaction risk. This leads to limited risk informativeness (different avoidance difficulty can receive similar values) and risk-time misalignment (risk can paradoxically rise until conflict resolution and then drop abruptly). We report evasive acceleration (EA), a hyperparameter-free and physically interpretable two-dimensional paradigm that directly measures the minimum instantaneous cost of collision avoidance.
       </p>
       <p>
-        Using large-scale interaction data from five open datasets and more than 600 real crashes, EA provides the earliest statistically significant warning across all tested thresholds, consistently improves crash discrimination, and retains substantially more outcome-relevant information than existing methods.
+        Using 44,180 naturalistic interactions from five open datasets across three countries and 658 reconstructed real-world crashes, EA outperforms evaluated baselines in warning timeliness, crash discrimination, and crash-outcome information retention. We further provide an efficient implementation with an average single-frame computation time of 5 ms for scalable deployment.
       </p>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-head">
+        <h2>Why EA Changes the Paradigm</h2>
+      </div>
+      <div class="method-grid">
+        <article>
+          <h3>From 1D to True 2D Risk Quantification</h3>
+          <p>
+            Unlike methods that quantify risk along a predefined direction, EA evaluates all possible directions of relative collision avoidance and keeps the least costly one.
+          </p>
+        </article>
+        <article>
+          <h3>Continuous and Mechanistic Risk Evolution</h3>
+          <p>
+            EA captures continuous risk evolution from escalation to dissipation after evasive action, avoiding the abrupt and misleading trend behavior often seen in TTC-style metrics.
+          </p>
+        </article>
+        <article>
+          <h3>Practical for Large-Scale Use</h3>
+          <p>
+            EA is hyperparameter-free, physically interpretable, and computationally efficient, with about 5 ms average single-frame runtime.
+          </p>
+        </article>
+      </div>
     </section>
 
     <section id="cases" class="section reveal">
@@ -152,13 +178,13 @@
           <img src="assets/images/Results_2_2.png" alt="Early warning performance under percentile-aligned thresholds" loading="lazy" class="figure-full-image" style="width: 80%; margin: 0 auto;" />
           <div class="figure-caption">
             <p>
-              This figure shows how early different methods can provide a warning before a crash.
-              We use a sustained-warning rule: a warning only counts if it stays active until the last valid pre-crash moment.
+              This figure quantifies warning timeliness under fixed false-alarm budgets.
+              We use a sustained-warning rule: a warning only counts if it remains active until the last valid pre-crash moment.
             </p>
             <p>
-              Across all tested thresholds, EA gives the earliest warning overall.
-              The advantage becomes even clearer when the warning threshold is made stricter,
-              and it is especially strong in vehicle-pedestrian interactions.
+              Across all tested thresholds, EA provides the earliest warning overall.
+              The advantage becomes larger as the false-alarm constraint becomes stricter,
+              reaching 120-267% earlier warnings than TTC-based methods at the 99.5th percentile threshold.
             </p>
           </div>
         </article>
@@ -173,9 +199,9 @@
             </p>
             <p>
               EA shows the strongest standalone performance: it separates crash and non-crash cases better,
-              leaves less residual uncertainty, and retains more useful information.
+              leaves less residual uncertainty, and retains more useful information (54.2-241.4% gain over baselines).
               The last panels also show that adding EA to existing baselines provides substantial extra information,
-              while adding those baselines on top of EA contributes very little.
+              while adding those baselines on top of EA contributes very little, with strong asymmetry up to 95.5x.
             </p>
           </div>
         </article>
@@ -190,13 +216,13 @@
         <article>
           <h3>Core Definition</h3>
           <p>
-            EA is the minimum norm of a constant two-dimensional relative acceleration vector that keeps the future relative trajectory outside the collision set.
+            EA is the minimum magnitude of a constant two-dimensional relative acceleration vector that keeps the future relative trajectory outside the collision set.
           </p>
         </article>
         <article>
           <h3>Evaluation Scale</h3>
           <p>
-            Validation uses 44,180 naturalistic potential conflicts and 658 reconstructed real crashes from heterogeneous datasets.
+            Validation uses 44,180 naturalistic interactions from five open datasets across Germany, China, and the United States, together with 658 reconstructed real-world crashes.
           </p>
         </article>
         <article>
@@ -210,11 +236,15 @@
 
     <section id="citation" class="section reveal citation">
       <div class="section-head">
-        <h2>Code</h2>
+        <h2>Links</h2>
       </div>
       <p>
         Source code:
         <a href="https://github.com/AutoChengh/evasive-acceleration" target="_blank" rel="noopener noreferrer">github.com/AutoChengh/evasive-acceleration</a>
+      </p>
+      <p>
+        Paper (arXiv):
+        <a href="https://arxiv.org/abs/2604.17841" target="_blank" rel="noopener noreferrer">arxiv.org/abs/2604.17841</a>
       </p>
     </section>
   </main>

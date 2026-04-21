@@ -171,9 +171,6 @@ h1 {
   border-radius: 999px;
   font-weight: 700;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .btn:hover {
@@ -226,6 +223,7 @@ h1 {
   margin: 0;
   color: var(--ink-soft);
   font-size: 0.96rem;
+  line-height: 1.58;
 }
 
 .section {
@@ -317,23 +315,6 @@ h1 {
   background: #fff;
 }
 
-.figure-link-box {
-  border: 1px dashed rgba(23, 33, 39, 0.22);
-  border-radius: 14px;
-  padding: 22px;
-  background: #f8f6f0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.figure-link-text {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: 0.98rem;
-}
-
 .figure-caption {
   margin-top: 14px;
   color: var(--ink-soft);
@@ -365,6 +346,25 @@ h1 {
 .method-grid p {
   margin: 0;
   color: var(--ink-soft);
+}
+
+.citation p {
+  margin: 0 0 10px;
+}
+
+.citation p:last-child {
+  margin-bottom: 0;
+}
+
+.citation a {
+  color: var(--accent-strong);
+  font-weight: 600;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+}
+
+.citation a:hover {
+  color: var(--accent);
 }
 
 .footer {
@@ -434,12 +434,7 @@ h1 {
     padding: 14px;
   }
 
-  .figure-caption,
-  .figure-link-text {
+  .figure-caption {
     font-size: 0.95rem;
-  }
-
-  .figure-link-box {
-    padding: 16px;
   }
 }
