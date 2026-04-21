@@ -223,6 +223,7 @@ h1 {
   margin: 0;
   color: var(--ink-soft);
   font-size: 0.96rem;
+  line-height: 1.58;
 }
 
 .section {
@@ -246,14 +247,13 @@ h1 {
 }
 
 .media-grid,
-.figure-grid,
 .method-grid {
   display: grid;
   gap: 16px;
 }
 
 .media-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .media-card {
@@ -266,9 +266,10 @@ h1 {
 
 .media-card img {
   width: 100%;
-  height: 230px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   display: block;
+  background: #f7f7f4;
 }
 
 .media-meta {
@@ -286,37 +287,46 @@ h1 {
   font-size: 0.94rem;
 }
 
-.figure-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.figure-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.figure-card {
+.figure-panel {
   border: 1px solid rgba(23, 33, 39, 0.13);
-  border-radius: 14px;
-  padding: 14px;
+  border-radius: 16px;
+  padding: 18px;
   background: var(--paper);
+  box-shadow: 0 10px 28px rgba(23, 33, 39, 0.08);
 }
 
-.figure-card h3 {
-  margin-bottom: 10px;
-  font-size: 1.28rem;
+.figure-panel h3 {
+  margin-bottom: 14px;
+  font-size: clamp(1.45rem, 2.1vw, 1.95rem);
 }
 
-.figure-card img,
-.pdf-viewer {
+.figure-full-image {
   width: 100%;
-  border-radius: 10px;
+  height: auto;
+  display: block;
+  border-radius: 12px;
   border: 1px solid rgba(23, 33, 39, 0.12);
   background: #fff;
 }
 
-.figure-card img {
-  height: 260px;
-  object-fit: cover;
+.figure-caption {
+  margin-top: 14px;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
 }
 
-.pdf-viewer {
-  height: 260px;
+.figure-caption p {
+  margin: 0 0 10px;
+}
+
+.figure-caption p:last-child {
+  margin-bottom: 0;
 }
 
 .method-grid {
@@ -338,20 +348,23 @@ h1 {
   color: var(--ink-soft);
 }
 
-.citation pre {
-  margin: 14px 0 8px;
-  padding: 12px;
-  border-radius: 10px;
-  background: #f2efe8;
-  border: 1px solid #ddd8ca;
-  overflow-x: auto;
-  font-size: 0.9rem;
+.citation p {
+  margin: 0 0 10px;
 }
 
-.footnote {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: 0.9rem;
+.citation p:last-child {
+  margin-bottom: 0;
+}
+
+.citation a {
+  color: var(--accent-strong);
+  font-weight: 600;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+}
+
+.citation a:hover {
+  color: var(--accent);
 }
 
 .footer {
@@ -385,7 +398,6 @@ h1 {
 @media (max-width: 1024px) {
   .impact-grid,
   .media-grid,
-  .figure-grid,
   .method-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -410,14 +422,19 @@ h1 {
 
   .impact-grid,
   .media-grid,
-  .figure-grid,
   .method-grid {
     grid-template-columns: 1fr;
   }
 
-  .media-card img,
-  .figure-card img,
-  .pdf-viewer {
-    height: 220px;
+  .media-card img {
+    height: auto;
+  }
+
+  .figure-panel {
+    padding: 14px;
+  }
+
+  .figure-caption {
+    font-size: 0.95rem;
   }
 }
