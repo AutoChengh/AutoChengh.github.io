@@ -60,6 +60,18 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.03em;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.brand img {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 14px rgba(14, 122, 106, 0.22);
+  flex: 0 0 auto;
 }
 
 .nav {
