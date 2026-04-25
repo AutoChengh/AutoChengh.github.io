@@ -1,0 +1,14 @@
+{
+  "name": "Driving risk emerges from the required two-dimensional joint evasive acceleration",
+  "short_name": "EA Paradigm",
+  "icons": [
+    {
+      "src": "assets/ea-lettermark-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0a6f62",
+  "background_color": "#fffdfa",
+  "display": "standalone"
+}
