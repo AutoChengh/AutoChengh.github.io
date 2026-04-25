@@ -348,12 +348,28 @@ h1 {
   color: var(--ink-soft);
 }
 
-.citation p {
-  margin: 0 0 10px;
+.citation-intro {
+  margin: 0 0 16px;
+  color: var(--ink-soft);
 }
 
-.citation p:last-child {
-  margin-bottom: 0;
+.resource-links {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.resource-links p {
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.resource-links span {
+  min-width: 92px;
+  color: var(--ink);
+  font-weight: 700;
 }
 
 .citation a {
@@ -365,6 +381,40 @@ h1 {
 
 .citation a:hover {
   color: var(--accent);
+}
+
+.citation-block {
+  margin-top: 18px;
+  border: 1px solid rgba(23, 33, 39, 0.12);
+  border-radius: 14px;
+  background: var(--paper);
+  padding: 16px;
+}
+
+.citation-block h3 {
+  margin-bottom: 8px;
+  font-size: 1.24rem;
+}
+
+.citation-text {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.citation pre {
+  margin: 0;
+  overflow-x: auto;
+  border-radius: 10px;
+  background: #f1efe8;
+  border: 1px solid rgba(23, 33, 39, 0.1);
+  padding: 14px;
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.citation code {
+  font-family: "IBM Plex Mono", Consolas, "Liberation Mono", monospace;
 }
 
 .footer {
@@ -436,5 +486,22 @@ h1 {
 
   .figure-caption {
     font-size: 0.95rem;
+  }
+
+  .resource-links p {
+    display: block;
+  }
+
+  .resource-links span {
+    display: block;
+    min-width: 0;
+  }
+
+  .citation-block {
+    padding: 14px;
+  }
+
+  .citation pre {
+    font-size: 0.82rem;
   }
 }
